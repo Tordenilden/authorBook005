@@ -38,14 +38,38 @@ export class AuthorComponent implements OnInit {
 //       console.log(this.authorService.readAllAuthorsHC());
 //       console.log(this.authorService.readAuthorByIdHC(1));
 // //Invoke readAuthorById(2);
-    this.authorService.readAllAuthors().subscribe((data)=>console.log(data));
-
+    //this.authorService.readAllAuthors().subscribe((data)=>console.log(data));
+    this.authorService.readAllAuthors().subscribe(
+      (data)=>{console.log(data)
+      this.authorList = data
+      }
+      );
+   // hvad så nu??
+   // hvordan får vi data i vores authorList??
+   // try it
 
   }
   // simulere en knap!!
   readAuthorById(authorId:number){
     console.log(this.authorService.readAuthorByIdHC(authorId));
   }
-  //1)
+  createAuthor(){
+    //HC et object...
+    console.log("test");
+
+    let author: IAuthor={authorId:0,name:'Simon'};
+    this.authorService.createAuthor(author).subscribe()
+    console.log("vores API");
+  }
+
+deleteAuthor(authorId:number){
+  //service subsribe()!!
+ // this.authorList.splice // position....
+ // this.authorList.findIndex // hvilket objekt på hvilken position
+  this.authorList.filter // denne returnere en liste uden det objekt vi vil fjerne
+  // i skal benytte et lambda exp...
+
+}
+
 
 }
