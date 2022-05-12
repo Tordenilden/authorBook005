@@ -1,0 +1,12 @@
+<p>author works!</p>
+
+<h5>Authorname {{author.name}}</h5>
+
+
+hvordan skal jeg tage data fra en liste og smide ud??
+find en container, dem er der en del af
+<div *ngFor="let authorObj of authorList">
+<p>{{authorObj.name}}</p>
+</div>
+<!-- 1 kunne være en variabel i vores *ngFor eller lignende...-->
+<button (click)="readAuthorById(1)"></button>

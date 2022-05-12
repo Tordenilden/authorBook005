@@ -1,0 +1,8 @@
+<p>side1 works!</p>
+<h2>name: {{name}} id: {{authorId}} </h2> <!-- her er der en variabel -->
+<button (click)="myMethod()">hej med dig</button> <!-- her er der et event / variabel-->
+<button (click)="myMethod2('hans')">hej med dig</button>
+<button (click)="myMethod2(name)">variabel in method</button>
+<p *ngIf="true">this is true</p> <!-- her er der en variabel-->
+<p *ngIf="false">this is false</p>
+<p *ngIf="isAlive">this is alive</p>

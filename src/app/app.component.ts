@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'authorBook005';
+  // ng generate component components/side1
 }
