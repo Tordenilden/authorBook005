@@ -23,7 +23,9 @@ export class AuthorService {
 // this is our API !!
   baseUrl : string = 'https://localhost:44333/api/Authors';
   constructor(private http:HttpClient) { } //1) DI
-  createAuthor(){}
+  createAuthor(author:IAuthor):Observable<IAuthor>{
+    return this.http.post<IAuthor>(this.baseUrl,author,httpOptions);
+  }
   readAllAuthors():Observable<IAuthor[]>{
     //return this.http.get<hvis vi skriver data format Her, så transformeres de auto>
     return this.http.get<IAuthor[]>(this.baseUrl);

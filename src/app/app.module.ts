@@ -8,6 +8,7 @@ import { Side2Component } from './components/side2/side2.component';
 import { Side5Component } from './components/side5/side5.component';
 import { AuthorComponent } from './components/author/author.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BookComponent } from './components/book/book.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
     Side1Component,
     Side2Component,
     Side5Component,
-    AuthorComponent
+    AuthorComponent,
+    BookComponent
   ],
   imports: [
     BrowserModule,
