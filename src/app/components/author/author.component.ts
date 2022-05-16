@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { IAuthor } from 'src/app/interfaces/IAuthor';
 import { AuthorService } from 'src/app/services/author.service';
 
@@ -9,10 +10,14 @@ import { AuthorService } from 'src/app/services/author.service';
   styleUrls: ['./author.component.css']
 })
 export class AuthorComponent implements OnInit {
-  title = 'My title'; // typeløst
+  // VARIABLER TIL HTML MM
+  title: any = 'My title'; // typeløst
   title2 : string = 'my title2';
   authorList :IAuthor[]=[]; // what?? mit array har fået en værdi / array
   author : IAuthor;
+  valg:boolean=false;
+
+  //HTML FORMS
 
   constructor(private authorService:AuthorService) { // DI
     this.author={authorId:1,name:'bo'};
@@ -51,15 +56,28 @@ export class AuthorComponent implements OnInit {
   }
   // simulere en knap!!
   readAuthorById(authorId:number){
+    console.log("byId");
+
     console.log(this.authorService.readAuthorByIdHC(authorId));
   }
+
+  // authorForm = new FormGroup({
+  //   ....
+  // });
   createAuthor(){
     //HC et object...
     console.log("test");
 
     let author: IAuthor={authorId:0,name:'Simon'};
     this.authorService.createAuthor(author).subscribe()
+
     console.log("vores API");
+    //HTML FORM
+    // const valueFromObj = this.authorForm.value;
+    // console.log(valueFromObj.authorId);
+
+    // this.authorService.createAuthor(this.authorForm.value).subscribe()
+
   }
 
 deleteAuthor(authorId:number){
@@ -68,8 +86,17 @@ deleteAuthor(authorId:number){
  // this.authorList.findIndex // hvilket objekt på hvilken position
   this.authorList.filter // denne returnere en liste uden det objekt vi vil fjerne
   // i skal benytte et lambda exp...
+  // jeg vil gerne have alt data tilbage pånær id eller noget i den retning...
+
+//1)kalde mit api og jeg kan se den bliver slettet - MEN ui bliver ikk updated
+//2)authorList og så fjerne det jeg har slettet!!
 
 }
 
-
+onToggle(temp:any){
+  // herinde skal vi så sætte den til det modsatte end det den var dvs !
+  //this.valg=!this.valg;
+  console.log(temp.target.checked);
+  //this.authorForm.checkbox.checked
+}
 }
