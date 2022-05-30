@@ -31,30 +31,31 @@ export class AuthorService {
     return this.http.get<IAuthor[]>(this.baseUrl);
   }
 
-  readAllAuthorsHC():IAuthor[]{
-    return [
-      {authorId:1,name:'bo'},
-      {authorId:2,name:'ib'},
-      {authorId:3,name:'Christian the Great'}
-    ];
-  }
-  readAuthorByIdHC(authorId:number):IAuthor{
-    //lav en liste og returner nummer 2
-    let authorList:IAuthor[]=[
-      {authorId:1,name:'bo'},
-      {authorId:2,name:'ib'},
-      {authorId:3,name:'Christian the Great'}
-    ];
-    return authorList[authorId];
-  }
   readAuthorByName(){}
   readAuthorByBook(){}//this one is robin
   updateAuthor(){}
-  deleteAuthor(){}
+  deleteAuthor(authorIdToRemove:number):Observable<IAuthor>{
+    return this.http.delete<IAuthor>(`${this.baseUrl}/${authorIdToRemove}`);
+  }
 
   hansOgGrethe():string{
     return "hansi har kage";
   }
-
+  readAllAuthorsHardcoded():IAuthor[]{
+    return [
+      {authorId:1,name:'bo', age:12,password:'1234',isAlive:true},
+      {authorId:2,name:'ib', age:22,password:'1234',isAlive:true},
+      {authorId:3,name:'Christian the Great', age:33,password:'1234',isAlive:true}
+    ];
+  }
+  readAuthorByIdHardcoded(authorId:number):IAuthor{
+    //lav en liste og returner nummer 2
+    let authorList:IAuthor[]=[
+      {authorId:1,name:'bo', age:12,password:'1234',isAlive:true},
+      {authorId:2,name:'ib', age:22,password:'1234',isAlive:true},
+      {authorId:3,name:'Christian the Great', age:33,password:'1234',isAlive:true}
+    ];
+    return authorList[authorId];
+  }
 
 }

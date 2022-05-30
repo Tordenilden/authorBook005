@@ -1,19 +1,19 @@
 <p>author works!</p>
 
-<h5>Authorname {{author.name}}</h5>
-
-
+<!-- <input type="text" #kaffe >
+<button (click)="searchSomething(kaffe.value)">search</button> -->
 hvordan skal jeg tage data fra en liste og smide ud??
 find en container, dem er der en del af
 <div *ngFor="let authorObj of authorList">
   <label for="">{{authorObj.name}}</label>
-  <button (click)="deleteAuthor(authorObj.authorId)">Delete Author</button>
+  <button (click)="deleteAuthor(authorObj.authorId)">X</button>
+
 <p>{{authorObj.name}}</p>
 </div>
 <!-- 1 kunne være en variabel i vores *ngFor eller lignende...-->
 <button (click)="readAuthorById(1)"></button>
 <input type="text" name="" value="authorName" id="">
-<button (click)="createAuthor()">create author</button>
+<button type="submit" (click)="createAuthor(authorForm.value)">create author</button>
 Her er checkbox<input type="checkbox" name="mandag" id="mandag" (change)="onToggle($event)">
 
 
